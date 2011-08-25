@@ -165,11 +165,188 @@ a:hover { color: #036; }
 /**
  * Primary styles
  *
- * Author: 
+ * Author: Joel Martin
  */
 
+html, body {
+  height: 100%;
+}
+
+.container {
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  margin: 0;
+  padding: 0;
+  border-style: solid;
+
+  background: #fff;
+
+  /*
+  background: #2c609b;
+  box-shadow: inset 0 -200px 100px #032b5c, inset -100px 100px 100px #2073b5, inset 100px 200px 100px #1f9bb1;
+  -o-box-shadow: inset 0 -200px 100px #032b5c, inset -100px 100px 100px #2073b5, inset 100px 200px 100px #1f9bb1;
+  -webkit-box-shadow: inset 0 -200px 100px #032b5c, inset -100px 100px 100px #2073b5, inset 100px 200px 100px #1f9bb1;
+  -moz-box-shadow: inset 0 -200px 100px #032b5c, inset -100px 100px 100px #2073b5, inset 100px 200px 100px #1f9bb1;
+  */
+
+/*
+  background: #609b2c;
+  -webkit-box-shadow: inset 0 -200px 100px #2b5c03, inset -100px 100px 100px #73b520, inset 100px 200px 100px #9bb11f;
+*/
+}
 
 
+/* Enable Flexible Box Layout */
+.container,
+.noVNC-window,
+.noVNC-control-bar,
+.noVNC-status-bar,
+.flex-vertical,
+.flex-horizontal,
+.flex-centered {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-box;
+  display: box;
+}
+
+/* Enable vertical FBL layout */
+.container,
+.noVNC-window,
+.flex-vertical {
+  -webkit-box-orient: vertical;
+  -moz-box-orient: vertical;
+  -ms-box-orient: vertical;
+  box-orient: vertical;
+}
+
+/* Enabled horizontal FBL layout */
+.noVNC-status-bar,
+.flex-horizontal {
+  -webkit-box-orient: horizontal;
+  -moz-box-orient: horizontal;
+  -ms-box-orient: horizontal;
+  box-orient: horizontal;
+}
+
+/* Enabled horizontally centered FBL layout */
+.container,
+.flex-hcenter {
+  -webkit-box-align: center;
+  -moz-box-align: center;
+  -ms-box-align: center;
+  box-align: center;
+}
+
+/* Enabled vertically centered FBL layout */
+.container,
+.flex-vcenter {
+  -webkit-box-pack: center;
+  -moz-box-pack: center;
+  -ms-box-pack: center;
+  box-pack: center;
+}
+
+/* Set FBL flex ratio to 1 */
+.noVNC-status,
+.flex-box-1 {
+  -webkit-box-flex: 1;
+  -moz-box-flex: 1;
+  -ms-box-flex: 1;
+  box-flex: 1;
+}
+
+/* -------------- */
+
+/*
+  container
+    noVNC-window
+      noVNC-control-bar
+      noVNC-status-bar    
+      noVNC-viewport
+*/
+
+.noVNC-window {
+  background: #ccc;
+
+  border: 1px solid rgba(255,255,255,0.6);
+  background: rgba(192,232,192,0.75);
+  border-radius: 8px;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  box-shadow: 0 2px 16px #000, 0 0 1px #000, 0 0 1px #000;
+  -o-box-shadow: 0 2px 16px #000, 0 0 1px #000, 0 0 1px #000;
+  -webkit-box-shadow: 0 2px 16px #000, 0 0 1px #000, 0 0 1px #000;
+  -moz-box-shadow: 0 2px 16px #000, 0 0 1px #000, 0 0 1px #000;
+  text-shadow: 0 0 15px #fff, 0 0 15px #fff;
+
+}
+
+.noVNC-window input {
+  font-size: 1em;
+  display: inline-block;
+  /*margin: 50px 0 10px 0;*/
+  border: 1px solid rgba(0,0,0,0.5);
+  padding: 2px 4px;
+  border-radius: 2px;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  background: rgba(255,255,255,0.75);
+  box-shadow: 0 0 2px #fff, 0 0 1px #fff, inset 0 0 3px #fff
+  -o-box-shadow: 0 0 2px #fff, 0 0 1px #fff, inset 0 0 3px #fff
+  -webkit-box-shadow: 0 0 2px #fff, 0 0 1px #fff, inset 0 0 3px #fff
+  -moz-box-shadow: 0 0 2px #fff, 0 0 1px #fff, inset 0 0 3px #fff
+}
+
+.noVNC-window canvas {
+  background: #fff;
+  border: 1px solid #000;
+  margin: 0px 5px 5px 5px;
+  border-radius: 2px;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  box-shadow: 0 0 5px #fff, 0 0 1px #fff, inset 0 1px 2px #aaa;
+  -o-box-shadow: 0 0 5px #fff, 0 0 1px #fff, inset 0 1px 2px #aaa;
+  -webkit-box-shadow: 0 0 5px #fff, 0 0 1px #fff, inset 0 1px 2px #aaa;
+  -moz-box-shadow: 0 0 5px #fff, 0 0 1px #fff, inset 0 1px 2px #aaa;
+  text-shadow: none;
+}
+
+
+.noVNC-control-bar div {
+  margin-right: 10px;
+}
+#noVNC_host { width: 100px; }
+#noVNC_port { width: 50px; }
+#noVNC_password { width: 80px; }
+
+.noVNC-control-bar {
+  margin: 5px 5px 5px 5px;
+}
+
+.noVNC-status-bar {
+  margin: 1px 5px 0px 5px;
+  padding: 1px;
+  box-shadow: 0 0 5px #fff, 0 0 1px #fff, inset 0 1px 2px #aaa;
+}
+.noVNC-status-bar input {
+  font-size: 10px;
+  margin: 0px;
+  padding: 0px;
+  padding: 1px 1px;
+}
+.noVNC-status-normal {
+  color: #444;
+}
+.noVNC-status-error {
+  color: #c44;
+}
+.noVNC-status_warn {
+  color: #cc4;
+}
 
 
 
