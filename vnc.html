@@ -85,9 +85,11 @@
         </div>
 
         <div class="noVNC_buttons_right">
+          <div class="noVNC-menu">
             <input type=button value="Settings"
               id="menuButton" onclick="UI.clickSettingsMenu();">
-            <span id="noVNC_settings_menu" style="display: none;"
+            <span id="noVNC_settings_menu" class="noVNC-settings-menu"
+              style="display: none;"
               onmouseover="UI.displayBlur();"
               onmouseout="UI.displayFocus();">
             <ul>
@@ -117,6 +119,7 @@
                     onclick="UI.settingsApply()"></li>
             </ul>
             </span>
+          </div>
         </div>
 
         <div class="noVNC_buttons_right">
@@ -127,7 +130,7 @@
       </div> <!--! end of #status-bar -->
 
       <div id="noVNC_viewport">
-        <canvas id="noVNC_canvas" width="640px" height="480px" style="border-style: solid;">
+        <canvas id="noVNC_canvas" width="640px" height="480px">
             Canvas not supported.
         </canvas>
       </div>
@@ -142,6 +145,10 @@
 
 
   <!-- JavaScript at the bottom for fast page loading -->
+
+  <script>
+    var INCLUDE_URI = "js/";
+  </script>
 
   <script src="js/noVNC/util.js"></script>
   <script src="js/noVNC/webutil.js"></script>

@@ -19,22 +19,21 @@ load: function() {
     var html = '', i, sheet, sheets, llevels;
 
     // Stylesheet selection dropdown
-    html += '            <li><select id="noVNC_stylesheet" name="vncStyle">';
-    html += '              <option value="default">default</option>';
+    html = '              <option value="default">default</option>';
     sheet = WebUtil.selectStylesheet();
     sheets = WebUtil.getStylesheets();
     for (i = 0; i < sheets.length; i += 1) {
         html += '<option value="' + sheets[i].title + '">' + sheets[i].title + '</option>';
     }
-    html += '              </select> Style</li>';
+    $D('noVNC_stylesheet').innerHTML = html;
 
     // Logging selection dropdown
-    html += '            <li><select id="noVNC_logging" name="vncLogging">';
+    html = '';
     llevels = ['error', 'warn', 'info', 'debug'];
     for (i = 0; i < llevels.length; i += 1) {
         html += '<option value="' + llevels[i] + '">' + llevels[i] + '</option>';
     }
-    html += '              </select> Logging</li>';
+    $D('noVNC_logging').innerHTML = html;
 
     // Settings with immediate effects
     UI.initSetting('logging', 'warn');

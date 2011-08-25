@@ -168,8 +168,19 @@ a:hover { color: #036; }
  * Author: Joel Martin
  */
 
+/*
+  html
+    body
+      container
+        noVNC-window
+        noVNC-control-bar
+        noVNC-status-bar    
+        noVNC-viewport
+*/
+
 html, body {
   height: 100%;
+  width: 100%;
 }
 
 .container {
@@ -261,14 +272,6 @@ html, body {
 
 /* -------------- */
 
-/*
-  container
-    noVNC-window
-      noVNC-control-bar
-      noVNC-status-bar    
-      noVNC-viewport
-*/
-
 .noVNC-window {
   background: #ccc;
 
@@ -346,6 +349,32 @@ html, body {
 }
 .noVNC-status_warn {
   color: #cc4;
+}
+
+.noVNC-menu {
+    position: relative;
+}
+
+.noVNC-settings-menu {
+    display: none;
+    position: absolute;
+    right: 0px;
+    width: 13em;
+    border: 1px solid #888;
+    background: rgba(192,232,192,0.90);
+    padding: 5px; margin: 3px;
+    z-index: 100; opacity: 1;
+    text-align: left; white-space: normal;
+}
+
+.noVNC-settings-menu ul {
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
+}
+
+#noVNC_connectTimeout {
+    width: 2em;
 }
 
 
