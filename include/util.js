@@ -33,6 +33,12 @@ Array.prototype.push32 = function (num) {
               (num      ) & 0xFF  );
 };
 
+if(!Array.isArray) {
+    Array.isArray = function (vArg) {
+        return Object.prototype.toString.call(vArg) === "[object Array]";
+    };
+}
+
 // IE does not support map (even in IE9)
 //This prototype is provided by the Mozilla foundation and
 //is distributed under the MIT license.
