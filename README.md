@@ -1,6 +1,9 @@
 ## noVNC: HTML5 VNC Client
 
 
+### **NOTE**: This is a branch of noVNC that has proof-of-concept support for the Xpra protocol.
+
+
 ### Description
 
 noVNC is a HTML5 VNC client that runs well in any modern browser
