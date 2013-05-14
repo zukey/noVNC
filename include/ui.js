@@ -10,9 +10,6 @@
 /*jslint white: false, browser: true */
 /*global window, $D, Util, WebUtil, RFB, Display */
 
-// Load supporting scripts
-window.onscriptsload = function () { UI.load(); };
-
 var UI = {
 
 rfb_state : 'loaded',
@@ -66,9 +63,9 @@ start: function(callback) {
     UI.initSetting('path', 'websockify');
     UI.initSetting('repeaterID', '');
 
-    UI.rfb = RFB({'target': $D('noVNC_canvas'),
-                  'onUpdateState': UI.updateState,
-                  'onClipboard': UI.clipReceive});
+    UI.rfb = UI.Client({'target': $D('noVNC_canvas'),
+                        'onUpdateState': UI.updateState,
+                        'onClipboard': UI.clipReceive});
     UI.updateVisualState();
 
     // Unfocus clipboard when over the VNC area

@@ -180,9 +180,9 @@
     <script src="include/util.js"></script>
     <script>
         Util.load_scripts(["webutil.js", "base64.js", "websock.js", "des.js",
-                        "input.js", "display.js", "jsunzip.js", "rfb.js", "ui.js"]);
+                        "input.js", "display.js", "jsunzip.js", "xpra.js", "ui.js"]);
         window.onscriptsload = function () {
-            UI.Client = RFB;
+            UI.Client = Xpra;
             UI.load();
         };
     </script>
