@@ -1,6 +1,6 @@
 ## noVNC: HTML5 VNC Client
 
-[![Build Status](https://travis-ci.org/kanaka/noVNC.svg?branch=master)](https://travis-ci.org/kanaka/noVNC)
+[![Build Status](https://travis-ci.org/kanaka/noVNC.svg?branch=novnc-legacy)](https://travis-ci.org/kanaka/noVNC)
 
 ### Description
 
