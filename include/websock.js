@@ -375,31 +375,8 @@ function Websock() {
                     Util.Debug("Ignoring empty message");
                 }
             } catch (exc) {
-                var exception_str = "";
-                if (exc.name) {
-                    exception_str += "\n    name: " + exc.name + "\n";
-                    exception_str += "    message: " + exc.message + "\n";
-                }
-
-                if (typeof exc.description !== 'undefined') {
-                    exception_str += "    description: " + exc.description + "\n";
-                }
-
-                if (typeof exc.stack !== 'undefined') {
-                    exception_str += exc.stack;
-                }
-
-                if (exception_str.length > 0) {
-                    Util.Error("recv_message, caught exception: " + exception_str);
-                } else {
-                    Util.Error("recv_message, caught exception: " + exc);
-                }
-
-                if (typeof exc.name !== 'undefined') {
-                    this._eventHandlers.error(exc.name + ": " + exc.message);
-                } else {
-                    this._eventHandlers.error(exc);
-                }
+                Util.Error("recv_message, caught exception:", exc);
+                this._eventHandlers.error(exc)
             }
         }
     };

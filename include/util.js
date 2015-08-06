@@ -217,7 +217,7 @@ Util.init_logging = function (level) {
         case 'warn':
             Util.Warn  = function (msg) { console.warn(msg); };
         case 'error':
-            Util.Error = function (msg) { console.error(msg); };
+            Util.Error = function (msg, err) { console.error(msg, err); };
         case 'none':
             break;
         default:

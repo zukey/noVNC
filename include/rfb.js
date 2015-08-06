@@ -167,7 +167,7 @@ var RFB;
         try {
             this._display = new Display({target: this._target});
         } catch (exc) {
-            Util.Error("Display exception: " + exc);
+            Util.Error("Display exception:", exc);
             throw exc;
         }
 

@@ -7,6 +7,19 @@ var expect = chai.expect;
 describe('Websock', function() {
     "use strict";
 
+    function throwUtilError() {
+        if (Util.__Error === undefined) { Util.__Error = Util.Error; }
+        Util.Error = function (msg, err) {
+            if (err) { throw err; }
+            Util.__Error(msg, err);
+        };
+    }
+
+    before(function () {
+        // Actually throw errors
+        throwUtilError();
+    });
+
     describe('Queue methods', function () {
         var sock;
         var RQ_TEMPLATE = new Uint8Array([0, 1, 2, 3, 4, 5, 6, 7]);
@@ -405,12 +418,14 @@ describe('Websock', function() {
         });
 
         it('should call the error event handler on an exception', function () {
+            Util.Error = Util.__Error;
             sock._eventHandlers.error = sinon.spy();
             sock._eventHandlers.message = sinon.stub().throws();
             var msg = { data: new Uint8Array([1, 2, 3]).buffer };
             sock._mode = 'binary';
             sock._recv_message(msg);
             expect(sock._eventHandlers.error).to.have.been.calledOnce;
+            throwUtilError();
         });
     });
 

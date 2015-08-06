@@ -32,6 +32,12 @@ describe('Remote Frame Buffer Protocol Client', function() {
             this._rQ = rQ;
         };
 
+        // Actually throw errors
+        if (Util.__Error === undefined) { Util.__Error = Util.Error; }
+        Util.Error = function (msg, err) {
+            if (err) { throw err; }
+            Util.__Error(msg, err);
+        };
     });
 
     after(function () {
