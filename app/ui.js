@@ -130,7 +130,7 @@ var UI;
             UI.setViewClip();
             UI.setBarPosition();
 
-            Util.addEvent(window, 'resize', function () {
+            window.addEventListener('resize', function () {
                 UI.onresize();
                 UI.setViewClip();
                 UI.updateViewDrag();
@@ -148,15 +148,15 @@ var UI;
                  document.documentElement.webkitRequestFullscreen ||
                  document.body.msRequestFullscreen)) {
                 document.getElementById('fullscreenButton').style.display = "inline";
-                Util.addEvent(window, 'fullscreenchange', UI.updateFullscreenButton);
-                Util.addEvent(window, 'mozfullscreenchange', UI.updateFullscreenButton);
-                Util.addEvent(window, 'webkitfullscreenchange', UI.updateFullscreenButton);
-                Util.addEvent(window, 'msfullscreenchange', UI.updateFullscreenButton);
+                window.addEventListener('fullscreenchange', UI.updateFullscreenButton);
+                window.addEventListener('mozfullscreenchange', UI.updateFullscreenButton);
+                window.addEventListener('webkitfullscreenchange', UI.updateFullscreenButton);
+                window.addEventListener('msfullscreenchange', UI.updateFullscreenButton);
             }
 
-            Util.addEvent(window, 'load', UI.keyboardinputReset);
+            window.addEventListener('load', UI.keyboardinputReset);
 
-            Util.addEvent(window, 'beforeunload', function () {
+            window.addEventListener('beforeunload', function () {
                 if (UI.rfb && UI.rfb_state === 'normal') {
                     return "You are currently connected.";
                 }
