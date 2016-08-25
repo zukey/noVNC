@@ -53,7 +53,7 @@ var UI;
 
         // Render default UI and initialize settings menu
         start: function(callback) {
-            UI.isTouchDevice = 'ontouchstart' in document.documentElement;
+            UI.isTouchDevice = document.ontouchstart !== undefined;
 
             // Stylesheet selection dropdown
             var sheet = WebUtil.selectStylesheet();

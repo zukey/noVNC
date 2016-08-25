@@ -341,7 +341,7 @@ var Keyboard, Mouse;
         grab: function () {
             var c = this._target;
 
-            if ('ontouchstart' in document.documentElement) {
+            if (document.ontouchstart !== undefined) {
                 Util.addEvent(c, 'touchstart', this._eventHandlers.mousedown);
                 Util.addEvent(window, 'touchend', this._eventHandlers.mouseup);
                 Util.addEvent(c, 'touchend', this._eventHandlers.mouseup);
@@ -363,7 +363,7 @@ var Keyboard, Mouse;
         ungrab: function () {
             var c = this._target;
 
-            if ('ontouchstart' in document.documentElement) {
+            if (document.ontouchstart !== undefined) {
                 Util.removeEvent(c, 'touchstart', this._eventHandlers.mousedown);
                 Util.removeEvent(window, 'touchend', this._eventHandlers.mouseup);
                 Util.removeEvent(c, 'touchend', this._eventHandlers.mouseup);
