@@ -400,8 +400,8 @@ var RFB;
             }
 
             if (this._display && this._display.get_context()) {
-                this._keyboard.ungrab();
-                this._mouse.ungrab();
+                if (!this._view_only) { this._keyboard.ungrab(); }
+                if (!this._view_only) { this._mouse.ungrab(); }
                 if (state !== 'connect' && state !== 'loaded') {
                     this._display.defaultCursor();
                 }
@@ -988,8 +988,9 @@ var RFB;
             this._display.set_true_color(this._true_color);
             this._display.resize(this._fb_width, this._fb_height);
             this._onFBResize(this, this._fb_width, this._fb_height);
-            this._keyboard.grab();
-            this._mouse.grab();
+
+            if (!this._view_only) { this._keyboard.grab(); }
+            if (!this._view_only) { this._mouse.grab(); }
 
             if (this._true_color) {
                 this._fb_Bpp = 4;
