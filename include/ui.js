@@ -199,7 +199,9 @@ var UI;
                                   'onDesktopName': UI.updateDocumentTitle});
                 return true;
             } catch (exc) {
-                UI.updateState(null, 'fatal', null, 'Unable to create RFB client -- ' + exc);
+                var msg = 'Unable to create RFB client -- ' + exc;
+                Util.Error(msg);
+                UI.updateState(null, 'fatal', null, msg);
                 return false;
             }
         },
